@@ -12,16 +12,16 @@ function CalculateProfitandLoss(initial,quantity,current){
     var loss=(initial-current)*quantity;
     var LossPrecentage=(loss/quantity)*100;
 
-    console.log("Loss Percentage is "+LossPrecentage);
+    showOutput("Loss is "+loss+"And Loss Percentage is "+LossPrecentage.toFixed(2)+"%");
 
   }else if(current>initial){
     var profit=(current-initial)*quantity;
     var ProfitPrecentage=(profit/quantity)*100;
 
-    console.log("Profit Percentage is "+ProfitPrecentage);
+    showOutput("Profit is"+ profit +"And Profit Percentage is "+ProfitPrecentage.toFixed(2)+"%");
 
   }else{
-    console.log("No gain,No pain and no pain no gain");
+    showOutput("No gain,No pain and no pain no gain");
   }
 
 }
@@ -31,6 +31,15 @@ function SubmitHandler(){
   var  qty=Number(stock_quantity.value);
   var cp=Number(current_price.value);
 
+  if(ip || qty || cp)
+  {
+    alert("Enter all the details");
+  }
 CalculateProfitandLoss(ip,qty,cp);
+}
+
+function showOutput(message){
+  
+    output.innerHTML = message;
 }
 submit_button.addEventListener("click",SubmitHandler);
