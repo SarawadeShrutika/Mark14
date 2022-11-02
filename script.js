@@ -7,6 +7,10 @@ var output= document.querySelector('#output_box');
 
 
 function CalculateProfitandLoss(initial,quantity,current){
+
+  if(initial<0 || quantity<0 || current<0){
+     alert("Please Enter Positive Values");
+  }else{
   if(initial>current)
   {
     var loss=(initial-current)*quantity;
@@ -24,18 +28,20 @@ function CalculateProfitandLoss(initial,quantity,current){
   
     showOutput("No gain,No pain and no pain no gain");
   }
-
+  }
 }
 
 function SubmitHandler(){
   var ip=initial_price.value;
   var  qty=stock_quantity.value;
   var cp=current_price.value;
+
   if(ip=="" || qty=="" || cp=="")
   {
     alert("Please Enter Numbers");
-  }else{
-CalculateProfitandLoss(Number(ip),Number(qty),Number(cp));
+  }
+  else{
+      CalculateProfitandLoss(Number(ip),Number(qty),Number(cp));
   }
 }
 
